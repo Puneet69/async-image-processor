@@ -43,24 +43,45 @@ An asynchronous image processing service built with FastAPI that accepts CSV upl
 
 ``git clone https://github.com/Puneet69/async-image-processor.git
 cd async-image-processor``
+
+---
+
 2. Create and activate a Python virtual environment
   ``python3 -m venv venv
 source venv/bin/activate      # On Windows: venv\Scripts\activate``
-3. Install dependencies
+
+---
+
+4. Install dependencies
 ``pip install -r requirements.txt``
-4. Configure MongoDB
+
+---
+
+6. Configure MongoDB
 ``mongodb://localhost:27017``
-5. Run the FastAPI server
+
+---
+
+8. Run the FastAPI server
 ``uvicorn app.main:app --reload``
 
-6. Post request
+---
+
+
+10. Post request
   example: ``curl -X POST "http://127.0.0.1:8000/upload" -F "file=@products_images.csv"``
 
+---
+
 API Endpoints
+
 1. Root
 GET /
 Returns a welcome message confirming API is running.
-2. Upload CSV
+
+---
+
+3. Upload CSV
 POST /upload
 Upload a CSV file containing product images to process asynchronously.
 Form fields:
@@ -73,7 +94,10 @@ Response:
   "request_id": "unique-request-id",
   "status": "PENDING"
 }
-3. Check Job Status
+
+---
+
+4. Check Job Status
 GET /status/{request_id}
 Get the current status of a job using the request_id.
 Response example:
@@ -81,7 +105,11 @@ Response example:
   "request_id": "unique-request-id",
   "status": "PENDING | COMPLETED"
 }
-4. Download Results CSV
+
+---
+
+
+5. Download Results CSV
 GET /download/{request_id}
 Download the processed results CSV for the given job.
 How It Works
@@ -91,24 +119,18 @@ Images are downloaded, compressed, and saved locally.
 Job status updates from PENDING to COMPLETED once all images are processed.
 Processed data saved as CSV which can be downloaded.
 If provided, webhook URL is called on completion.
-Project Structure
-app/
-├── main.py          # FastAPI entrypoint
-├── workers.py       # Async worker functions for image processing
-├── crud.py          # Database CRUD operations
-├── utils.py         # Image downloading/compression utilities
-├── csv_utils.py     # CSV saving utility
-├── database.py      # MongoDB connection setup
-├── schemas.py       # Pydantic models
-...
-requirements.txt      # Python dependencies
-README.md             # This file
+
+---
+
 Notes
 Ensure your CSV URLs are publicly accessible.
 Output images and CSV are saved locally in processed_images and processed_results folders.
 Adjust concurrency limits and quality settings in workers/utils as needed.
 Testing the API
 You can test the API easily using tools like Postman or [curl].
+
+---
+
 Example curl to upload CSV:
 
 curl -X POST "http://127.0.0.1:8000/upload" -F "file=@yourfile.csv" -F "webhook_url=https://your-webhook.url"
