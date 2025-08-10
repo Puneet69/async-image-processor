@@ -1,0 +1,7 @@
+Serial Number,Product Name,Input Image Urls
+1,SKU1,http://localhost:8001/img1.jpg
+2,SKU1,http://localhost:8001/img2.jpg
+3,SKU1,http://localhost:8001/img3.jpg
+4,SKU2,http://localhost:8001/img1.jpg
+5,SKU2,http://localhost:8001/img2.jpg
+6,SKU2,http://localhost:8001/img3.jpg

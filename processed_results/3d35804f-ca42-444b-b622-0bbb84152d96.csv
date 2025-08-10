@@ -1,0 +1,7 @@
+serial_number,product_name,original_url,status,processed_url
+1,SKU1,http://localhost:8001/img1.jpg,FAILED,
+2,SKU1,http://localhost:8001/img2.jpg,COMPLETED,/processed_images/52926bdf-7574-46e7-aae8-e3e459a14133.jpg
+3,SKU1,http://localhost:8001/img3.jpg,COMPLETED,/processed_images/fda3571a-08b1-4f36-a667-ce1adbaa3c6c.jpg
+4,SKU2,http://localhost:8001/img1.jpg,FAILED,
+5,SKU2,http://localhost:8001/img2.jpg,COMPLETED,/processed_images/924544fc-7e52-4ffb-82b7-d05225f0b86e.jpg
+6,SKU2,http://localhost:8001/img3.jpg,COMPLETED,/processed_images/a785167b-02bd-4d1b-8fd5-71d21a038c60.jpg
